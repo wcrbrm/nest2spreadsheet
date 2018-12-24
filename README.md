@@ -45,7 +45,12 @@ __Setup Instructions__
   - Click blue "Create" button
   - your JSON key file is generated and downloaded to your machine (__it is the only copy!__)
   - Update `GOOGLE_SERVICE_PRIVATE_KEY`, and `GOOGLE_SERVICE_CLIENT_EMAIL` from that JSON file in your environment config `.env`
-5. Share the doc (or docs) with your service account using the email `GOOGLE_SERVICE_CLIENT_EMAIL` noted above
+
+## Spreadsheet Preparation
+
+1. Share the spreadsheet with your service account using the email `GOOGLE_SERVICE_CLIENT_EMAIL` noted above. Otherwise you will receive
+2. Your spreadsheet MUST have 1 row set up, containing EXACTLY these column names: `time`, `current_temp`, `target_temp`, `humidity`.
+3. Extra rows should be manually deleted
 
 ## Running
 
@@ -55,4 +60,11 @@ Watch mode (refreshes every 30 seconds) `npm run watch`
 ## Running with Docker
 
 Clone repositort and set up variables. Then start docker service
-```docker-compose up -d```
+```
+docker-compose up -d
+```
+
+To Stop the service:
+```
+docker-compose down
+```
