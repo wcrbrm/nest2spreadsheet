@@ -1,0 +1,28 @@
+{
+  "name": "nest2spreadsheet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "cross-env DEBUG=*,-follow-redirects node src/index.js",
+    "watch": "cross-env DEBUG=*,-follow-redirects node src/index.js watch",
+    "start:dev": "cross-env DEBUG=*,-follow-redirects nodemon src/index.js",
+    "watch:dev": "cross-env DEBUG=*,-follow-redirects nodemon src/index.js watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nest",
+    "daikin"
+  ],
+  "private": true,
+  "author": "Web Cerebrium <webcerebrium@gmail.com> (https://webcerebrium.com/)",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cross-env": "^5.2.0",
+    "dotenv": "^6.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
