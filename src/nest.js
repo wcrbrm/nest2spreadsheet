@@ -1,5 +1,6 @@
 const axios = require("axios");
 const createDebug = require('debug');
+const { appendToSpreadsheet } = require('./spreadsheet');
 
 const signIn = () => {
   const email = process.env.NEST_EMAIL;
@@ -62,6 +63,8 @@ const getData = ({ access_token, userid, urls }) => {
       const humidity = device[device_id]["current_humidity"]/100;
       const auto_away = shared[device_id]["auto_away"];
       dbg("[" + time + "] Current Temp: ", current_temp, "Target Temp: ",  target_temp, "Humidity: ", humidity*100 + "%" );
+
+      appendToSpreadsheet({ time, current_temp, target_temp, humidity });
       return { time, current_temp, target_temp, humidity };
     });
 };

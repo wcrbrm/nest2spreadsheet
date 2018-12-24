@@ -24,7 +24,7 @@ https://docs.google.com/spreadsheets/`GOOGLE_SPREADSHEET_KEY`/edit
 
 ## Credentials of Google's Service Account
 
-Providing google spreadsheet and service credentials is optional, without them it will just display 
+Providing google spreadsheet and service credentials is optional, without them it will just display data (with warnings) 
 
 __Setup Instructions__
 
@@ -44,7 +44,7 @@ __Setup Instructions__
   - Click blue "Create" button
   - your JSON key file is generated and downloaded to your machine (__it is the only copy!__)
   - Update `GOOGLE_SERVICE_PRIVATE_KEY`, and `GOOGLE_SERVICE_CLIENT_EMAIL` from that JSON file in your environment config `.env`
-5. Share the doc (or docs) with your service account using the email noted above
+5. Share the doc (or docs) with your service account using the email `GOOGLE_SERVICE_CLIENT_EMAIL` noted above
 
 ## Running
 
