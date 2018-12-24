@@ -1,6 +1,7 @@
 # nest2spreadsheet
 Nest Schedule Controller - saved to Google Spreadsheet
 
+
 ## Installation
 
 1. Clone this repository and install dependencies
@@ -51,6 +52,7 @@ __Setup Instructions__
 One-time call: `npm run start`
 Watch mode (refreshes every 30 seconds) `npm run watch`
 
+## Running with Docker
 
-
-
+Clone repositort and set up variables. Then start docker service
+```docker-compose up -d```
