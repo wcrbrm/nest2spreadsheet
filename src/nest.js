@@ -2,8 +2,8 @@ const axios = require("axios");
 const createDebug = require('debug');
 
 const signIn = () => {
-  const email = process.env.NEST_EMAIL ||'jonasbrenden@gmail.com';
-  const password = process.env.NEST_PASSWORD || '1095@pplE'; 
+  const email = process.env.NEST_EMAIL;
+  const password = process.env.NEST_PASSWORD; 
   if (!email || !password) throw new Exception('NEST_EMAIL or NEST_PASSWORD expected in environment variables');
 
   const data = JSON.stringify({ "email" : email, "password" : password });

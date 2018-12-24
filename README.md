@@ -18,15 +18,13 @@ GOOGLE_SERVICE_PRIVATE_KEY=-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KE
 GOOGLE_SERVICE_CLIENT_EMAIL=spreadsheets@spreadsheet-editor-XXXXXX.iam.gserviceaccount.com
 ```
 
-`GOOGLE_SPREADSHEET_KEY` is the ID of the spreadsheet in the URL:
+`GOOGLE_SPREADSHEET_KEY` is the ID of the spreadsheet in the URL, which you can see while opening it in browser:
 https://docs.google.com/spreadsheets/`GOOGLE_SPREADSHEET_KEY`/edit
 
 
 ## Credentials of Google's Service Account
 
-This is a 2-legged oauth method and designed to be "an account that belongs to your application instead of to an individual end user".
-Use this for an app that needs to access a set of documents that you have full access to.
-([read more](https://developers.google.com/identity/protocols/OAuth2ServiceAccount))
+Providing google spreadsheet and service credentials is optional, without them it will just display 
 
 __Setup Instructions__
 
@@ -45,7 +43,7 @@ __Setup Instructions__
   - Select the "JSON" key type option
   - Click blue "Create" button
   - your JSON key file is generated and downloaded to your machine (__it is the only copy!__)
-  - Take `GOOGLE_SERVICE_PRIVATE_KEY`, and `GOOGLE_SERVICE_CLIENT_EMAIL` into your environment config `.env`
+  - Update `GOOGLE_SERVICE_PRIVATE_KEY`, and `GOOGLE_SERVICE_CLIENT_EMAIL` from that JSON file in your environment config `.env`
 5. Share the doc (or docs) with your service account using the email noted above
 
 ## Running
