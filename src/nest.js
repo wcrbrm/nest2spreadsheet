@@ -1,5 +1,6 @@
 const axios = require("axios");
 const createDebug = require('debug');
+const { sendWebhook } = require('./ifttt');
 const { appendToSpreadsheet } = require('./spreadsheet');
 
 const signIn = () => {
@@ -55,16 +56,38 @@ const getData = ({ access_token, userid, urls }) => {
   return axios(options)
     .then(response => (response.data))
     .then(({ user, structure, shared, device }) => {
-      const time = new Date();
+      const time = new Date().toISOString();
       const structure_id = user[userid]['structures'][0].split('.')[1]
       const device_id = structure[structure_id]['devices'][0].split('.')[1]
       const current_temp = shared[device_id]["current_temperature"];
       const target_temp = shared[device_id]["target_temperature"];
+      const target_temp_int = parseInt(target_temp, 10);
       const humidity = device[device_id]["current_humidity"]/100;
       const auto_away = shared[device_id]["auto_away"];
-      dbg("[" + time + "] Current Temp: ", current_temp, "Target Temp: ",  target_temp, "Humidity: ", humidity*100 + "%" );
+ 
+      const temp_diff = Math.abs(parseInt(current_temp + 0.5, 10) - target_temp);
+      const need_change = (temp_diff >= 0.99) && 
+                          (target_temp_int >= 16) && (target_temp_int <= 30)
+      dbg("[" + time + "] " + 
+        "Current Temp: ", current_temp, 
+	"Target Temp: ",  target_temp, 
+        "Diff: ",  temp_diff, 
+        "Changing: ",  need_change, 
+        "Humidity: ", humidity * 100 + "%" );
 
-      appendToSpreadsheet({ time, current_temp, target_temp, humidity });
+      if (need_change) {
+        const rowData = { time, current_temp, target_temp, humidity, changing: "YES" };
+
+        sendWebhook({ target: target_temp })
+         .then(data => {
+	    return appendToSpreadsheet({ ...rowData, result: JSON.stringify(data) });
+         }).catch(e => {
+	    return appendToSpreadsheet({ ...rowData, error: e.toString() });
+         })
+
+      } else {
+        appendToSpreadsheet({ time, current_temp, target_temp, humidity, changing: "NO" });
+      }
       return { time, current_temp, target_temp, humidity };
     });
 };

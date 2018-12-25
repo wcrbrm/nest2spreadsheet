@@ -10,10 +10,11 @@ git clone https://github.com/wcrbrm/nest2spreadsheet
 cd nest2spreadsheet
 npm install
 ```
-2. Copy `.env.example` into `.env` and put your actual Nest credentials and credentials to access Google Spreadsheet.
+2. Copy `.env.example` into `.env` and put your actual Nest credentials, IFTTT webhook key and credentials to access Google Spreadsheet.
 ```
 NEST_EMAIL=
 NEST_PASSWORD=
+IFTTT_WEBHOOK_KEY=
 GOOGLE_SPREADSHEET_KEY=
 GOOGLE_SERVICE_PRIVATE_KEY=-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----
 GOOGLE_SERVICE_CLIENT_EMAIL=spreadsheets@spreadsheet-editor-XXXXXX.iam.gserviceaccount.com
