@@ -12,7 +12,7 @@ if (command === 'append') {
 
 } else if (command === 'w' || command === 'watch') {
   signIn().then(waitAsync(1))
-    .then(actionData => continueWith({ action: getData, actionData, seconds: 120 }))
+    .then(actionData => continueWith({ action: getData, actionData, seconds: 5*60 }))
     .catch(e => console.error('ERROR: ', e.toString()))
 } else {
   // one time case: 
