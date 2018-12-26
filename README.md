@@ -6,7 +6,7 @@ Nest Schedule Controller - saved to Google Spreadsheet
 
 1. Clone this repository and install dependencies
 ```
-git clone https://github.com/wcrbrm/nest2spreadsheet
+git clone https://github.com/webcerebrium/nest2spreadsheet
 cd nest2spreadsheet
 npm install
 ```
