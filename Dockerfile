@@ -1,7 +1,8 @@
 FROM node:11
 
 WORKDIR /usr/src/app
-COPY package*.json src ./
+COPY . ./
 RUN npm install --only=production
+ENV DEBUG=*,-follow-redirects
 
-CMD [ "npm", "watch" ]
+CMD [ "npm", "run", "watch" ]
