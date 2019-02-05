@@ -11,9 +11,12 @@ if (command === 'append') {
     .catch(console.error)
 
 } else if (command === 'w' || command === 'watch') {
+
+  const seconds = process.env.INTERVAL || 60;
   signIn().then(waitAsync(1))
-    .then(actionData => continueWith({ action: getData, actionData, seconds: 1*60 }))
+    .then(actionData => continueWith({ action: getData, actionData, seconds }))
     .catch(e => console.error('ERROR: ', e.toString()))
+
 } else {
   // one time case: 
   signIn().then(waitAsync(1))
