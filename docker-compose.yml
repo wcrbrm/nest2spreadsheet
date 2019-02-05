@@ -3,5 +3,7 @@ services:
    nest2spreasheet:
       build: .
       restart: "always"
+      ports:
+         - "13000:3000"
       env_file: 
          - ./.env
