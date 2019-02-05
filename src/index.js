@@ -1,5 +1,6 @@
 const { waitAsync, continueWith } = require('./util');
 const { signIn, getData } = require('./nest');
+const { metricsServer } = require('./spreadsheet');
 
 require('dotenv').config();
 
@@ -16,7 +17,8 @@ if (command === 'append') {
   signIn().then(waitAsync(1))
     .then(actionData => continueWith({ action: getData, actionData, seconds }))
     .catch(e => console.error('ERROR: ', e.toString()))
-
+ 
+  metricsServer.start();
 } else {
   // one time case: 
   signIn().then(waitAsync(1))

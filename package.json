@@ -9,7 +9,7 @@
     "start": "node ./src/index.js",
     "watch": "node ./src/index.js watch",
     "start:dev": "cross-env DEBUG=*,-follow-redirects nodemon ./src/index.js",
-    "watch:dev": "cross-env DEBUG=*,-follow-redirects INTERVAL=5 nodemon ./src/index.js watch",
+    "watch:dev": "cross-env DEBUG=*,-follow-redirects INTERVAL=15 nodemon ./src/index.js watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -23,7 +23,8 @@
     "axios": "^0.18.0",
     "cross-env": "^5.2.0",
     "dotenv": "^6.2.0",
-    "google-spreadsheet": "^2.0.6"
+    "google-spreadsheet": "^2.0.6",
+    "prom-client": "^11.2.1"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"

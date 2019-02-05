@@ -70,7 +70,7 @@ const getData = ({ access_token, userid, urls }) => {
                           (target_temp >= 16) && (target_temp <= 30)
       dbg("[" + time + "] " + 
         "Current Temp: ", current_temp, 
-	"Target Temp: ",  target_temp, 
+	      "Target Temp: ",  target_temp, 
         "Diff: ",  temp_diff, 
         "Changing: ",  need_change, 
         "Humidity: ", humidity * 100 + "%" );
