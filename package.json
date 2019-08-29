@@ -20,7 +20,7 @@
   "author": "Web Cerebrium <webcerebrium@gmail.com> (https://webcerebrium.com/)",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": ">=0.18.1",
     "cross-env": "^5.2.0",
     "dotenv": "^6.2.0",
     "google-spreadsheet": "^2.0.6",
